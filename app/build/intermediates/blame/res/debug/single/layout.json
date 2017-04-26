@@ -424,6 +424,10 @@
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_password.xml",
+        "source": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\src\\main\\res\\layout\\dialog_password.xml"
+    },
+    {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },

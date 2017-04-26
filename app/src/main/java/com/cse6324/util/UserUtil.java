@@ -26,6 +26,8 @@ public class UserUtil {
     public final static String CAL = "calorie";
     public final static String NOTIFY = "notify";
 
+    public final static String LOCK = "lock";
+
     public static UserBean getUserInfo() {
         UserBean bean = new UserBean();
         bean.setUid(MyApplication.getPreferences(UID));
@@ -41,6 +43,7 @@ public class UserUtil {
         bean.setBsl(MyApplication.getPreferences(BSL));
         bean.setChol(MyApplication.getPreferences(CHOL));
         bean.setNotify(MyApplication.getPreferences(NOTIFY));
+        bean.setLock(MyApplication.getPreferences(LOCK));
         return bean;
     }
 
@@ -87,7 +90,6 @@ public class UserUtil {
 
             if (!isEmpty(bean.getCalorie()))
                 MyApplication.setStringPref(CAL, bean.getCalorie());
-
         } else {
             //Clear Cache
             MyApplication.setStringPref(UID, null);
@@ -103,6 +105,7 @@ public class UserUtil {
             MyApplication.setStringPref(CHOL, null);
             MyApplication.setStringPref(CAL, null);
             MyApplication.setStringPref(NOTIFY, null);
+            MyApplication.setStringPref(LOCK,null);
         }
     }
 }

@@ -126,17 +126,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Check which request we're responding to
-        if (requestCode == 0) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK && profileFragment!=null) {
-                profileFragment.setInfo();
-            }
-        }
-    }
-
-    @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }

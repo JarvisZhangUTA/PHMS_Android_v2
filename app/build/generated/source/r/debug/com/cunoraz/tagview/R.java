@@ -20,7 +20,7 @@ public final class R {
         public static final int tv_tag_item_delete = 0x7f0f013d;
     }
     public static final class layout {
-        public static final int tagview_item = 0x7f040085;
+        public static final int tagview_item = 0x7f040086;
     }
     public static final class string {
         public static final int app_name = 0x7f080035;

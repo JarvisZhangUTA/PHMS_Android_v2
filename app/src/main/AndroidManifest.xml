@@ -105,6 +105,22 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".SetLockActivity"
+            android:label="PHMS"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ConfirmLockActivity"
+            android:label="PHMS"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+
         <receiver android:name="com.cse6324.service.MedicineReceiver">
             <intent-filter>
                 <action android:name="android.alarm.demo.action"/>

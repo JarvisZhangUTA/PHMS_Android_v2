@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.cse6324.dialog.PasswordDialog;
 import com.cse6324.http.Constant;
 import com.cse6324.http.HttpUtil;
 import com.cse6324.service.MyApplication;
@@ -26,6 +28,8 @@ import okhttp3.Headers;
 import okhttp3.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import static cn.finalteam.toolsfinal.StringUtils.isEmpty;
+
 /**
  * Created by Jarvis on 2017/2/12.
  */
@@ -33,7 +37,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     RelativeLayout rlLogout;
-    Switch pinNotify;
+    Switch pinNotify, pinLock;
 
     private BaseHttpRequestCallback callback = new BaseHttpRequestCallback() {
         @Override
@@ -59,9 +63,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         rlLogout.setOnClickListener(this);
 
         pinNotify = (Switch) findViewById(R.id.pin_notify);
+        pinLock = (Switch) findViewById(R.id.pin_lock);
 
         if (UserUtil.getUserInfo().getNotify().equals("1")) {
             pinNotify.setChecked(true);
+        }
+
+        if (!isEmpty(UserUtil.getUserInfo().getLock())) {
+            pinLock.setChecked(true);
         }
 
         pinNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -79,6 +88,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                         .add("token", MyApplication.getPreferences(UserUtil.TOKEN))
                         .add("notify", notify)
                         .get(Constant.URL_SETNOTIFY, callback);
+            }
+        });
+
+        pinLock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                new PasswordDialog(SettingActivity.this, isChecked, pinLock).show();
             }
         });
     }
