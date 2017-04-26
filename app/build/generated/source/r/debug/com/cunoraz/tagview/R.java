@@ -8,25 +8,25 @@ package com.cunoraz.tagview;
 
 public final class R {
     public static final class attr {
-        public static final int lineMargin = 0x7f01018b;
-        public static final int tagMargin = 0x7f01018c;
-        public static final int textPaddingBottom = 0x7f010190;
-        public static final int textPaddingLeft = 0x7f01018d;
-        public static final int textPaddingRight = 0x7f01018e;
-        public static final int textPaddingTop = 0x7f01018f;
+        public static final int lineMargin = 0x7f010192;
+        public static final int tagMargin = 0x7f010193;
+        public static final int textPaddingBottom = 0x7f010197;
+        public static final int textPaddingLeft = 0x7f010194;
+        public static final int textPaddingRight = 0x7f010195;
+        public static final int textPaddingTop = 0x7f010196;
     }
     public static final class id {
-        public static final int tv_tag_item_contain = 0x7f0f0133;
-        public static final int tv_tag_item_delete = 0x7f0f0134;
+        public static final int tv_tag_item_contain = 0x7f0f013c;
+        public static final int tv_tag_item_delete = 0x7f0f013d;
     }
     public static final class layout {
-        public static final int tagview_item = 0x7f040084;
+        public static final int tagview_item = 0x7f040085;
     }
     public static final class string {
-        public static final int app_name = 0x7f080022;
+        public static final int app_name = 0x7f080035;
     }
     public static final class styleable {
-        public static final int[] TagView = { 0x7f01018b, 0x7f01018c, 0x7f01018d, 0x7f01018e, 0x7f01018f, 0x7f010190 };
+        public static final int[] TagView = { 0x7f010192, 0x7f010193, 0x7f010194, 0x7f010195, 0x7f010196, 0x7f010197 };
         public static final int TagView_lineMargin = 0;
         public static final int TagView_tagMargin = 1;
         public static final int TagView_textPaddingBottom = 5;

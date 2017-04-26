@@ -20,7 +20,7 @@ public final class R {
         public static final int quoteStripeWidth = 0x7f01011b;
     }
     public static final class string {
-        public static final int app_name = 0x7f080022;
+        public static final int app_name = 0x7f080035;
     }
     public static final class styleable {
         public static final int[] KnifeText = { 0x7f010113, 0x7f010114, 0x7f010115, 0x7f010116, 0x7f010117, 0x7f010118, 0x7f010119, 0x7f01011a, 0x7f01011b, 0x7f01011c };

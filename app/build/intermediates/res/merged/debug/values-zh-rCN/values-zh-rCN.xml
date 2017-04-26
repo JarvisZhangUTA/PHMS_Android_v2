@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"转到主屏幕"</string>
     <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s：%2$s"</string>
     <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s - %2$s：%3$s"</string>
@@ -19,6 +19,25 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"分享方式"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"通过%s分享"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"收起"</string>
+    <string name="pl_access_pattern_area">"图案区域。"</string>
+    <string name="pl_access_pattern_cell_added">"已添加单元格"</string>
+    <string name="pl_access_pattern_cell_added_verbose">"已添加圆点 <ns1:g id="CELL_INDEX">%1$d</ns1:g>"</string>
+    <string name="pl_access_pattern_cleared">"图案已清除"</string>
+    <string name="pl_access_pattern_detected">"图案绘制完成"</string>
+    <string name="pl_access_pattern_start">"开始绘制图案"</string>
+    <string name="pl_cancel">取消</string>
+    <string name="pl_confirm">确认</string>
+    <string name="pl_confirm_pattern">再次绘制图案以确认</string>
+    <string name="pl_continue">继续</string>
+    <string name="pl_draw_pattern">绘制解锁图案</string>
+    <string name="pl_draw_pattern_to_unlock">绘制图案以解锁</string>
+    <string name="pl_forgot_pattern">忘记图案</string>
+    <string name="pl_pattern_confirmed">您的新解锁图案</string>
+    <string name="pl_pattern_recorded">已记录图案</string>
+    <string name="pl_pattern_too_short">至少连接 %d 个点，请重画</string>
+    <string name="pl_recording_pattern">完成后松开手指</string>
+    <string name="pl_redraw">重画</string>
+    <string name="pl_wrong_pattern">图案错误，请重试</string>
     <string msgid="146198913615257606" name="search_menu_title">"搜索"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

@@ -8,18 +8,18 @@ package com.github.channguyen.rsv;
 
 public final class R {
     public static final class attr {
-        public static final int barHeightPercent = 0x7f010156;
-        public static final int emptyColor = 0x7f010155;
-        public static final int filledColor = 0x7f010154;
-        public static final int rangeCount = 0x7f010153;
-        public static final int sliderRadiusPercent = 0x7f010158;
-        public static final int slotRadiusPercent = 0x7f010157;
+        public static final int barHeightPercent = 0x7f01015d;
+        public static final int emptyColor = 0x7f01015c;
+        public static final int filledColor = 0x7f01015b;
+        public static final int rangeCount = 0x7f01015a;
+        public static final int sliderRadiusPercent = 0x7f01015f;
+        public static final int slotRadiusPercent = 0x7f01015e;
     }
     public static final class string {
-        public static final int app_name = 0x7f080022;
+        public static final int app_name = 0x7f080035;
     }
     public static final class styleable {
-        public static final int[] RangeSliderView = { 0x7f010153, 0x7f010154, 0x7f010155, 0x7f010156, 0x7f010157, 0x7f010158 };
+        public static final int[] RangeSliderView = { 0x7f01015a, 0x7f01015b, 0x7f01015c, 0x7f01015d, 0x7f01015e, 0x7f01015f };
         public static final int RangeSliderView_barHeightPercent = 3;
         public static final int RangeSliderView_emptyColor = 2;
         public static final int RangeSliderView_filledColor = 1;
