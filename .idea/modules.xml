@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PHMS_Android_v2.iml" filepath="$PROJECT_DIR$/PHMS_Android_v2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PHMS_Client.iml" filepath="$PROJECT_DIR$/PHMS_Client.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

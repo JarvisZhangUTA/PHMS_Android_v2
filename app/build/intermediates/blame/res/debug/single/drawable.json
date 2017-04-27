@@ -160,10 +160,6 @@
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\90d457c5e876ff1247e238096fbee0267f10f2ba\\output\\res\\drawable\\md_item_selected.xml"
     },
     {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button.xml",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable\\button.xml"
-    },
-    {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\droppy_list_item_normal.xml",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\0e8497a4dde37c4e1be8dd8742be4e5fd80dbbe2\\output\\res\\drawable\\droppy_list_item_normal.xml"
     },
@@ -252,16 +248,8 @@
         "source": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\src\\main\\res\\drawable\\avatar_04.png"
     },
     {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cling_button_bg.xml",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable\\cling_button_bg.xml"
-    },
-    {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\0c899cbd66d7b7e44bd96f2e7ff8105b84db3b87\\output\\res\\drawable\\design_fab_background.xml"
-    },
-    {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_normal.xml",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable\\button_normal.xml"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\add.png",

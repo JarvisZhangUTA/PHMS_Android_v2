@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "/Users/gaolin/.android/build-cache/af50dadc2d2373f7bf1a9da81f49576f30054a89/output/res/values/values.xml",
+                    "file": "C:\\Users\\Jarvis\\.android\\build-cache\\535c91863b65126fa28c38dbd588214af4bb51b0\\output\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

@@ -1,7 +1,7 @@
-#Wed Apr 26 21:56:18 CDT 2017
-base.0=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_74e93de0399822dc598856a12688ccdb768d05d7
+#Wed Apr 26 22:11:09 CDT 2017
+base.0=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_881d1a8aa638705d87a9f5dea2243b05630dee31
 renamed.1=classes2.dex
 renamed.0=classes.dex
-file.1=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ff9e086bf1ac34d344ed7a4506e65c36bb96fd2e/classes.dex
-base.1=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ff9e086bf1ac34d344ed7a4506e65c36bb96fd2e
-file.0=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_74e93de0399822dc598856a12688ccdb768d05d7/classes.dex
+file.1=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e517224568cf9bba18d4e87205c2638e902db745\\classes.dex
+base.1=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e517224568cf9bba18d4e87205c2638e902db745
+file.0=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_881d1a8aa638705d87a9f5dea2243b05630dee31\\classes.dex
