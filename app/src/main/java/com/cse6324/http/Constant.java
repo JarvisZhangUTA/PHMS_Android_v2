@@ -8,6 +8,7 @@ public class Constant {
     public final static String URL_REGISTER = "http://45.55.179.123/register.php?";
     public final static String URL_LOGIN = "http://45.55.179.123/login.php?";
     public final static String URL_RESETPASSWORD ="http://45.55.179.123/resetPassword.php?";
+    public final static String URL_CHANGEPASSWORD ="http://45.55.179.123/changepassword.php?";
     public final static String URL_CALORIEPLAN ="http://45.55.179.123/calorieplan.php?";
     public final static String URL_VITALSIGNS = "http://45.55.179.123/vitalsigns.php?";
 

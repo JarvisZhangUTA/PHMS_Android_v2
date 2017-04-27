@@ -1,4 +1,4 @@
-#Wed Apr 26 17:30:42 CDT 2017
-base.0=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_8
+#Wed Apr 26 18:05:13 CDT 2017
+base.0=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8
 renamed.0=classes.dex
-file.0=E\:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_8\\classes.dex
+file.0=/Users/gaolin/gitProjects/PHMS_Android_v2/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex

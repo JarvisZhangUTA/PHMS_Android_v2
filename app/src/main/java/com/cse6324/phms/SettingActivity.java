@@ -10,11 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.cse6324.dialog.PasswordDialog;
+import com.cse6324.dialog.ChangePasswordDialog;
 import com.cse6324.http.Constant;
 import com.cse6324.http.HttpUtil;
 import com.cse6324.service.MyApplication;
@@ -38,6 +40,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     RelativeLayout rlLogout;
     Switch pinNotify, pinLock;
+    LinearLayout change_password;
 
     private BaseHttpRequestCallback callback = new BaseHttpRequestCallback() {
         @Override
@@ -61,6 +64,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         rlLogout = (RelativeLayout) findViewById(R.id.rl_logout);
         rlLogout.setOnClickListener(this);
+
+        change_password = (LinearLayout) findViewById(R.id.change_password);
+//        change_password.setOnClickListener(this);
 
         pinNotify = (Switch) findViewById(R.id.pin_notify);
         pinLock = (Switch) findViewById(R.id.pin_lock);
@@ -98,6 +104,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 new PasswordDialog(SettingActivity.this, isChecked, pinLock).show();
             }
         });
+
+        change_password.setOnClickListener(new View.OnClickListener() {
+                                               @Override
+                                               public void onClick(View v) {
+                                                   new ChangePasswordDialog(SettingActivity.this).show();
+                                               }
+                                           }
+
+        );
+
+
     }
 
     @Override
