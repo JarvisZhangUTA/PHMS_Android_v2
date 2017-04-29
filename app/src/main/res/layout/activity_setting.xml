@@ -22,6 +22,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        android:id="@+id/change_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -94,25 +95,40 @@
         android:background="@color/colorTextDivider" />
 
     <LinearLayout
-        android:id="@+id/li_lock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Graphic Lock"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Graphic Lock"
+                android:textColor="@color/colorText"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set graphic lock to your personal information"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Switch
+            android:id="@+id/pin_lock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set the lock for your personal information"
-            android:textColor="@color/colorPrimaryLight"
-            android:textSize="10sp" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <View

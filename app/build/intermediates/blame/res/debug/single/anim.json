@@ -12,10 +12,6 @@
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fscv_fade_out.xml",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\e8b05552863ecaf5986c85d53626e9ae83fd4b8f\\output\\res\\anim\\fscv_fade_out.xml"
-    },
-    {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\anim\\popup_exit.xml",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\90d457c5e876ff1247e238096fbee0267f10f2ba\\output\\res\\anim\\popup_exit.xml"
     },
@@ -66,10 +62,6 @@
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\anim\\fscv_fade_in.xml",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\e8b05552863ecaf5986c85d53626e9ae83fd4b8f\\output\\res\\anim\\fscv_fade_in.xml"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",

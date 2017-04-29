@@ -22,6 +22,7 @@ import com.cse6324.bean.NoteBean;
 import com.cse6324.bean.UserBean;
 import com.cse6324.http.Constant;
 import com.cse6324.http.HttpUtil;
+import com.cse6324.phms.ConfirmLockActivity;
 import com.cse6324.phms.ContactActivity;
 import com.cse6324.phms.EditVitalSignsActivity;
 import com.cse6324.phms.LoginActivity;
@@ -38,6 +39,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import cn.finalteam.okhttpfinal.BaseHttpRequestCallback;
+import cn.finalteam.toolsfinal.StringUtils;
 import okhttp3.Headers;
 import okhttp3.Response;
 
@@ -156,8 +158,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         Intent intent;
         switch (view.getId()) {
             case R.id.editVitalSigns:
-                intent = new Intent(getActivity(), EditVitalSignsActivity.class);
-                getActivity().startActivityForResult(intent, 0);
+                if(!StringUtils.isEmpty(MyApplication.getPreferences(UserUtil.LOCK))){
+                    intent = new Intent(getActivity(), ConfirmLockActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent = new Intent(getActivity(), EditVitalSignsActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.layout_contact:
                 intent = new Intent(getActivity(), ContactActivity.class);

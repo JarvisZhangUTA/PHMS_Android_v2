@@ -116,20 +116,12 @@
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\btn_cling_normal.9.png",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable-mdpi-v4\\btn_cling_normal.9.png"
-    },
-    {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\btn_cling_pressed.9.png",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable-mdpi-v4\\btn_cling_pressed.9.png"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_list_focused_holo.9.png",
@@ -154,10 +146,6 @@
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\08354475a8e6ac9d264b0cb22f3e953dca2a5251\\output\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\hand.png",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable-mdpi-v4\\hand.png"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png",
@@ -226,10 +214,6 @@
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\design_ic_visibility_off.png",
         "source": "C:\\Users\\Jarvis\\.android\\build-cache\\0c899cbd66d7b7e44bd96f2e7ff8105b84db3b87\\output\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
-    },
-    {
-        "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cling.png",
-        "source": "C:\\Users\\Jarvis\\.android\\build-cache\\6ae4d1c27d6cacaa5250c383f57968c64ca08648\\output\\res\\drawable-mdpi-v4\\cling.png"
     },
     {
         "merged": "E:\\workspace\\androidstudio\\PHMS_Client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",

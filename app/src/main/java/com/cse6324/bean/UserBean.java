@@ -12,6 +12,8 @@ public class UserBean {
     private String password;
     private String notify;
 
+    private String lock;
+
     private String gender;
     private String age;
     private String weight;
@@ -131,5 +133,13 @@ public class UserBean {
 
     public void setNotify(String notify) {
         this.notify = notify;
+    }
+
+    public String getLock() {
+        return lock;
+    }
+
+    public void setLock(String lock) {
+        this.lock = lock;
     }
 }
