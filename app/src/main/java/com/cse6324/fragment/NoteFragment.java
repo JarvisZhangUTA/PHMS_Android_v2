@@ -57,17 +57,17 @@ public class NoteFragment extends Fragment {
 
                 List<NoteBean> list = JSON.parseArray(response, NoteBean.class);
                 adapter.setNoteList(list);
-            }
 
-            swipeRefreshLayout.setRefreshing(false);
-            adapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
+                adapter.notifyDataSetChanged();
 
-            if (adapter.getItemCount() == 0) {
-                ivEmpty.setVisibility(View.VISIBLE);
-                swipeRefreshLayout.setVisibility(View.GONE);
-            } else {
-                ivEmpty.setVisibility(View.GONE);
-                swipeRefreshLayout.setVisibility(View.VISIBLE);
+                if (adapter.getItemCount() == 0) {
+                    ivEmpty.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
+                } else {
+                    ivEmpty.setVisibility(View.GONE);
+                    swipeRefreshLayout.setVisibility(View.VISIBLE);
+                }
             }
         }
     };

@@ -27,6 +27,8 @@ import okhttp3.Headers;
 import okhttp3.Response;
 import com.cse6324.util.FormatUtil;
 
+import static cn.finalteam.toolsfinal.StringUtils.isEmpty;
+
 /**
  * Created by Jarvis on 2017/2/10.
  */
@@ -40,7 +42,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         @Override
         public void onResponse(Response httpResponse, String response, Headers headers) {
 
-            if(response.isEmpty()){
+            if(isEmpty(response)){
                 Toast.makeText(getContext(),"Login fail",Toast.LENGTH_SHORT).show();
             }else{
                 UserBean bean = JSON.parseObject(response, UserBean.class);

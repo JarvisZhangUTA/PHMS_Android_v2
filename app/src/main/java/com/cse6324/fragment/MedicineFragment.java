@@ -52,7 +52,7 @@ public class MedicineFragment extends Fragment {
         @Override
         public void onResponse(Response httpResponse, String response, Headers headers) {
 
-            if(headers.get("summary").equals("Token out of date")){
+            if(headers!=null && headers.get("summary").equals("Token out of date")){
                 new MaterialDialog
                         .Builder(getActivity())
                         .icon(getResources().getDrawable(R.mipmap.ic_warning_48dp))
@@ -81,18 +81,19 @@ public class MedicineFragment extends Fragment {
 
                 List<MedicineBean> list = JSON.parseArray(response, MedicineBean.class);
                 adapter.setList(list);
+
+                swipeRefreshLayout.setRefreshing(false);
+                adapter.notifyDataSetChanged();
+
+                if (adapter.getItemCount() == 0) {
+                    ivEmpty.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
+                } else {
+                    ivEmpty.setVisibility(View.GONE);
+                    swipeRefreshLayout.setVisibility(View.VISIBLE);
+                }
             }
 
-            swipeRefreshLayout.setRefreshing(false);
-            adapter.notifyDataSetChanged();
-
-            if (adapter.getItemCount() == 0) {
-                ivEmpty.setVisibility(View.VISIBLE);
-                swipeRefreshLayout.setVisibility(View.GONE);
-            } else {
-                ivEmpty.setVisibility(View.GONE);
-                swipeRefreshLayout.setVisibility(View.VISIBLE);
-            }
         }
     };
 

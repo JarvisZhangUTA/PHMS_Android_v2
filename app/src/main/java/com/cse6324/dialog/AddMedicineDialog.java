@@ -162,7 +162,7 @@ public class AddMedicineDialog {
                     MedicineAPIBean bean = new MedicineAPIBean();
                     com.alibaba.fastjson.JSONArray formArr = arr.getJSONArray(count);
                     com.alibaba.fastjson.JSONArray idArr = arr1.getJSONArray(count);
-                    bean.setName(obj.toString());
+                    bean.setName(obj.toString().replace("'s",""));
                     bean.setApi_id(idArr.getString(0));
                     bean.setStrength_And_Forms(formArr.getString(0));
                     list.add(bean);

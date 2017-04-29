@@ -69,9 +69,10 @@ public class DietFragment extends Fragment {
                 }catch(Exception e){
 
                 }
+
+                adapter.notifyDataSetChanged();
             }
 
-            adapter.notifyDataSetChanged();
         }
     };
 
