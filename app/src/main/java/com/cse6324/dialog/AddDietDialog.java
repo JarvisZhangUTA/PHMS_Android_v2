@@ -120,6 +120,7 @@ public class AddDietDialog {
                                 .add("quantity", etQuantity.getText().toString())
                                 .add("unit",unit.getText().toString())
                                 .add("calorie",etCal.getText().toString())
+                                .add("apiid", etName.getTag().toString())
                                 .get(Constant.URL_ADDDIETHISTORY,addDietCallback);
 
                         dietBean = new DietBean();
@@ -162,6 +163,7 @@ public class AddDietDialog {
                         new HttpUtil(HttpUtil.NORMAL_PARAMS)
                                 .addJSON(obj)
                                 .post(Constant.URL_SEARCHFOOD,callback);
+
                     }
                 }
         );
@@ -186,6 +188,7 @@ public class AddDietDialog {
         public void onResponse(Response httpResponse, String response, Headers headers) {
             try{
                 FoodAPIBean bean = JSON.parseObject(response,FoodAPIBean.class);
+
                 adapter.setList(bean.getResult());
                 adapter.notifyDataSetChanged();
 
@@ -225,8 +228,10 @@ public class AddDietDialog {
 
 
         etName.setText(name.replaceAll("'","''"));
+        etName.setTag(bean.getApiID());
         etQuantity.setText("1");
         etCal.setText(bean.getNf_calories());
+
 
         etQuantity.addTextChangedListener(
                 new TextWatcher(){

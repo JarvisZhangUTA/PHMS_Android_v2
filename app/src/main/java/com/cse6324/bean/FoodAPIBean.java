@@ -1,5 +1,7 @@
 package com.cse6324.bean;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class FoodAPIBean {
 
         if(hits != null)
             for(int i = 0; i < hits.size(); i++){
+                hits.get(i).getFields().setApiID(hits.get(i)._id);
                 list.add(hits.get(i).getFields());
             }
 
@@ -49,9 +52,10 @@ public class FoodAPIBean {
     }
 
     public class FoodResultBean{
+        @JSONField(name="_id")
+        String _id;
         String _index;
         String _type;
-        String _id;
         String _score;
         FoodBean fields;
 
@@ -99,7 +103,7 @@ public class FoodAPIBean {
         public class FoodBean{
             String item_name;
             String nf_calories;
-
+            String apiID;
 
             public String getItem_name() {
                 return item_name;
@@ -114,6 +118,14 @@ public class FoodAPIBean {
 
             public void setNf_calories(String nf_calories) {
                 this.nf_calories = nf_calories;
+            }
+
+            public String getApiID() {
+                return apiID;
+            }
+
+            public void setApiID(String apiID) {
+                this.apiID = apiID;
             }
         }
     }

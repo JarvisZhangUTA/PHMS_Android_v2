@@ -32,6 +32,7 @@ public class Constant {
     public final static String URL_SETREMINDER = "http://45.55.179.123/setreminder.php?";
 
     public final static String URL_SEARCHFOOD = "https://api.nutritionix.com/v1_1/search?";
+    public final static String URL_SEARCHFOOD2 = "https://trackapi.nutritionix.com/v2/search/item?";
     public final static String URL_SEARCHMEDICINE = "https://clin-table-search.lhc.nlm.nih.gov/api/rxterms/v3/search?";
 
     public final static String URL_GETNEWNOTICE = "http://45.55.179.123/getnewnotice.php?";
