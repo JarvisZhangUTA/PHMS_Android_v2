@@ -15,6 +15,10 @@ public class DietBean implements Serializable{
     String unit;
     String calorie;
 
+    String fat;
+    String protein;
+    String carbohydrate;
+
     public int getType() {
         return type;
     }
@@ -69,5 +73,29 @@ public class DietBean implements Serializable{
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getFat() {
+        return fat;
+    }
+
+    public void setFat(String fat) {
+        this.fat = fat;
+    }
+
+    public String getProtein() {
+        return protein;
+    }
+
+    public void setProtein(String protein) {
+        this.protein = protein;
+    }
+
+    public String getCarbohydrate() {
+        return carbohydrate;
+    }
+
+    public void setCarbohydrate(String carbohydrate) {
+        this.carbohydrate = carbohydrate;
     }
 }

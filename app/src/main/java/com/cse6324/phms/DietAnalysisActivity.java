@@ -72,7 +72,7 @@ public class DietAnalysisActivity extends AppCompatActivity {
     private TextView tvCalorie;
     private LineChart chartCalorie;
 
-    private PieChart chartPercent;
+    private PieChart chartPercent,chartNutrition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,12 +197,12 @@ public class DietAnalysisActivity extends AppCompatActivity {
 
         chartPercent = (PieChart) findViewById(R.id.percent_chart);
 
-        chartPercent.setUsePercentValues(true);
+        chartPercent.setUsePercentValues(false);
         chartPercent.setExtraOffsets(5, 10, 5, 5);
 
         chartPercent.setDragDecelerationFrictionCoef(0.95f);
 
-        chartPercent.setCenterText("Percent of intake");
+        chartPercent.setCenterText("Percent of daily intake");
 
         chartPercent.setDrawHoleEnabled(true);
         chartPercent.setHoleColor(Color.WHITE);
@@ -219,6 +219,32 @@ public class DietAnalysisActivity extends AppCompatActivity {
         chartPercent.setRotationEnabled(true);
         chartPercent.setHighlightPerTapEnabled(true);
         chartPercent.setDescription("");
+
+
+        chartNutrition = (PieChart) findViewById(R.id.percent_chart_nutrition);
+
+        chartNutrition.setUsePercentValues(false);
+        chartNutrition.setExtraOffsets(5, 10, 5, 5);
+
+        chartNutrition.setDragDecelerationFrictionCoef(0.95f);
+
+        chartNutrition.setCenterText("Percent of nutrition");
+
+        chartNutrition.setDrawHoleEnabled(true);
+        chartNutrition.setHoleColor(Color.WHITE);
+
+        chartNutrition.setTransparentCircleColor(Color.WHITE);
+        chartNutrition.setTransparentCircleAlpha(110);
+
+        chartNutrition.setHoleRadius(58f);
+        chartNutrition.setTransparentCircleRadius(61f);
+
+        chartNutrition.setDrawCenterText(true);
+
+        chartNutrition.setRotationAngle(0);
+        chartNutrition.setRotationEnabled(true);
+        chartNutrition.setHighlightPerTapEnabled(true);
+        chartNutrition.setDescription("");
     }
 
     @Override
@@ -267,6 +293,7 @@ public class DietAnalysisActivity extends AppCompatActivity {
                     List<DietBean> dietList = JSON.parseArray(response, DietBean.class);
                     setAvgCal(dietList);
                     setPercent(dietList);
+                    setNutrition(dietList);
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
@@ -323,6 +350,44 @@ public class DietAnalysisActivity extends AppCompatActivity {
         chartPercent.setData(data);
         chartPercent.highlightValues(null);
         chartPercent.invalidate();
+    }
+
+    public void setNutrition(List<DietBean> dietList) {
+        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+
+
+        float fat = 0, carb = 0, prot = 0;
+
+
+        for (int i = 0; i < dietList.size(); i++) {
+            fat += Float.parseFloat(dietList.get(i).getFat());
+            carb += Float.parseFloat(dietList.get(i).getCarbohydrate());
+            prot += Float.parseFloat(dietList.get(i).getProtein());
+        }
+
+        entries.add(new PieEntry(fat, "Fat"));
+        entries.add(new PieEntry(carb, "Carbohydrate"));
+        entries.add(new PieEntry(prot, "Protein"));
+
+        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+
+        dataSet.setColors(colors);
+
+        PieData data = new PieData(dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(11f);
+        data.setValueTextColor(Color.WHITE);
+        chartNutrition.setData(data);
+        chartNutrition.highlightValues(null);
+        chartNutrition.invalidate();
     }
 
     public void setAvgCal(List<DietBean> dietList) {

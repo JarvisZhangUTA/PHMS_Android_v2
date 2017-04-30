@@ -21,6 +21,7 @@ import com.cse6324.adapter.ContactListAdapter;
 import com.cse6324.adapter.DietListAdapter;
 import com.cse6324.bean.ContactBean;
 import com.cse6324.bean.DietBean;
+import com.cse6324.dialog.AddDietDialog;
 import com.cse6324.http.Constant;
 import com.cse6324.http.HttpUtil;
 import com.cse6324.phms.R;
@@ -58,7 +59,7 @@ public class DietFragment extends Fragment {
             } else{
                 if(adapter == null){
                     adapter = new DietListAdapter(DietFragment.this.getContext(),
-                            DietFragment.this);
+                            DietFragment.this, addDietListener);
                     recyclerView.setAdapter(adapter);
                 }
 
@@ -155,4 +156,11 @@ public class DietFragment extends Fragment {
                 .add("enddate", FormatUtil.getDate(cal))
                 .get(Constant.URL_GETDIETHISTORY,callback);
     }
+
+    private AddDietDialog.MyListener addDietListener= new AddDietDialog.MyListener(){
+        @Override
+        public void refreshActivity(DietBean bean, int type){
+            initData();
+        }
+    };
 }

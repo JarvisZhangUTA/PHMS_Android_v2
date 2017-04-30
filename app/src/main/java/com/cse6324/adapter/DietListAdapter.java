@@ -29,6 +29,8 @@ import com.cse6324.service.MyApplication;
 import com.cse6324.util.DisplayUtil;
 import com.cse6324.util.UserUtil;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -43,7 +45,7 @@ import static android.text.TextUtils.isEmpty;
  * Created by Jarvis on 2017/2/25.
  */
 
-public class DietListAdapter extends RecyclerView.Adapter{
+public class DietListAdapter extends RecyclerView.Adapter {
 
     final static int TITLE_CAL = 0;
     final static int TITLE_BF = 1;
@@ -54,6 +56,7 @@ public class DietListAdapter extends RecyclerView.Adapter{
     final static int TITLE_BOTTOM = 6;
 
     private Context context;
+    private List<DietBean> dietBeanList;
     private List<DietBean> list1;
     private List<DietBean> list2;
     private List<DietBean> list3;
@@ -63,34 +66,37 @@ public class DietListAdapter extends RecyclerView.Adapter{
     private Calendar cal;
 
     private DietFragment fragment;
+    private AddDietDialog.MyListener addDietListener;
 
     private int lastAnimatedPosition = -1;
 
     private int position_title_bf;
-    private  int position_title_lun;
+    private int position_title_lun;
     private int position_title_din;
-    private  int position_title_other;
+    private int position_title_other;
 
 
-    public DietListAdapter(Context context, DietFragment fragment){
+    public DietListAdapter(Context context, DietFragment fragment, AddDietDialog.MyListener addDietListener) {
         this.context = context;
         this.fragment = fragment;
+        this.addDietListener = addDietListener;
     }
 
-    public void setCalendar(Calendar cal){
+    public void setCalendar(Calendar cal) {
         this.cal = cal;
     }
 
-    public void setDietList(List<DietBean> dietlist){
+    public void setDietList(List<DietBean> dietlist) {
         totalCal = 0;
 
+        this.dietBeanList = dietlist;
         this.list1 = new ArrayList<>();
         this.list2 = new ArrayList<>();
         this.list3 = new ArrayList<>();
         this.list4 = new ArrayList<>();
 
-        for(int i = 0; i < dietlist.size(); i++){
-            switch (dietlist.get(i).getType()){
+        for (int i = 0; i < dietlist.size(); i++) {
+            switch (dietlist.get(i).getType()) {
                 case 0:
                     list1.add(dietlist.get(i));
                     break;
@@ -110,15 +116,15 @@ public class DietListAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return list1.size() + list2.size() + list3.size() + list4.size() + 6;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         View view;
-        switch(i){
+        switch (i) {
             case ITEM:
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_diet, null);
                 view.setLayoutParams(lp);
@@ -139,35 +145,35 @@ public class DietListAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i){
-        if(viewHolder instanceof TitleViewHolder)
-            setTitle((TitleViewHolder)viewHolder,i);
-        else if(viewHolder instanceof HeadViewHolder){
-            setHead((HeadViewHolder)viewHolder);
-        }else if(viewHolder instanceof ItemViewHolder){
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        if (viewHolder instanceof TitleViewHolder)
+            setTitle((TitleViewHolder) viewHolder, i);
+        else if (viewHolder instanceof HeadViewHolder) {
+            setHead((HeadViewHolder) viewHolder);
+        } else if (viewHolder instanceof ItemViewHolder) {
             DietBean bean;
 
             int type;
             int position;
 
-            if(i < position_title_lun) {
+            if (i < position_title_lun) {
                 bean = list1.get(i - position_title_bf - 1);
                 type = 0;
-            }else if(i < position_title_din) {
+            } else if (i < position_title_din) {
                 bean = list2.get(i - position_title_lun - 1);
                 type = 1;
-            }else if(i < position_title_other) {
+            } else if (i < position_title_other) {
                 bean = list3.get(i - position_title_din - 1);
                 type = 2;
-            }else {
+            } else {
                 bean = list4.get(i - position_title_other - 1);
                 type = 3;
             }
 
-            setItem((ItemViewHolder)viewHolder,bean);
+            setItem((ItemViewHolder) viewHolder, bean);
         }
 
-        if(i <= 9)
+        if (i <= 9)
             runEnterAnimation(viewHolder.itemView, i);
     }
 
@@ -184,81 +190,88 @@ public class DietListAdapter extends RecyclerView.Adapter{
         }
     }
 
-    private void setHead(HeadViewHolder viewHolder){
+    private void setHead(HeadViewHolder viewHolder) {
         float planCal;
 
-        if(isEmpty(MyApplication.getPreferences(UserUtil.CAL)))
+        if (isEmpty(MyApplication.getPreferences(UserUtil.CAL)))
             planCal = 0;
         else
             planCal = Float.parseFloat(MyApplication.getPreferences(UserUtil.CAL));
 
-        viewHolder.tvHad.setText(totalCal + "");
-        viewHolder.tvPlan.setText(planCal + "");
+        viewHolder.tvCalTaken.setText(totalCal + "");
+        viewHolder.tvCalRemain.setText((planCal - totalCal) + "");
 
-        viewHolder.tvLeft.setText((planCal - totalCal) + "");
+        int fat = 0, prot = 0, carb = 0;
 
-        if(planCal - totalCal < 0)
-            viewHolder.tvLeft.setTextColor(context.getResources().getColor(R.color.red));
-        else
-            viewHolder.tvLeft.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
+        for (int i = 0; i < dietBeanList.size(); i++) {
+            fat += Integer.parseInt(dietBeanList.get(i).getFat());
+            prot += Integer.parseInt(dietBeanList.get(i).getProtein());
+            carb += Integer.parseInt(dietBeanList.get(i).getCarbohydrate());
+        }
+
+        viewHolder.tvFat.setText(fat + "g");
+        viewHolder.tvCarb.setText(carb + "g");
+        viewHolder.tvProt.setText(prot + "g");
     }
 
-    private void setTitle(TitleViewHolder viewholder, int i){
-        if(getItemViewType(i) == TITLE_BF){
-            viewholder.tvTitle.setText("Breakfast +");
+    private void setTitle(TitleViewHolder viewholder, int i) {
+        if (getItemViewType(i) == TITLE_BF) {
+            viewholder.tvTitle.setText("Breakfast");
             viewholder.icon.setImageResource(R.drawable.breakfast);
             viewholder.type = 0;
         }
-        if(getItemViewType(i) == TITLE_LUN){
-            viewholder.tvTitle.setText("Lunch +");
+        if (getItemViewType(i) == TITLE_LUN) {
+            viewholder.tvTitle.setText("Lunch");
             viewholder.icon.setImageResource(R.drawable.lunch);
             viewholder.type = 1;
         }
-        if(getItemViewType(i) == TITLE_DIN){
-            viewholder.tvTitle.setText("Dinner +");
+        if (getItemViewType(i) == TITLE_DIN) {
+            viewholder.tvTitle.setText("Dinner");
             viewholder.icon.setImageResource(R.drawable.dinner);
             viewholder.type = 2;
         }
-        if(getItemViewType(i) == TITLE_OTHER){
-            viewholder.tvTitle.setText("Snacks +");
+        if (getItemViewType(i) == TITLE_OTHER) {
+            viewholder.tvTitle.setText("Snacks");
             viewholder.icon.setImageResource(R.drawable.snack);
             viewholder.type = 3;
         }
     }
 
-    private void setItem(ItemViewHolder viewholder, DietBean bean){
+    private void setItem(ItemViewHolder viewholder, DietBean bean) {
         viewholder.id = bean.getDietid();
+        viewholder.dietBean = bean;
         viewholder.tvName.setText(bean.getName());
         viewholder.tvQuantity.setText(bean.getQuantity() + " " + bean.getUnit());
         viewholder.tvCalorie.setText(bean.getCalorie());
     }
 
     @Override
-    public int getItemViewType(int position){
+    public int getItemViewType(int position) {
         position_title_bf = 1;
         position_title_lun = list1.size() + 2;
         position_title_din = list1.size() + list2.size() + 3;
         position_title_other = list1.size() + list2.size() + list3.size() + 4;
 
-        if(position == 0)
-           return TITLE_CAL;
-        else if(position == position_title_bf)
+        if (position == 0)
+            return TITLE_CAL;
+        else if (position == position_title_bf)
             return TITLE_BF;
-        else if(position == position_title_lun)
+        else if (position == position_title_lun)
             return TITLE_LUN;
-        else if(position == position_title_din)
+        else if (position == position_title_din)
             return TITLE_DIN;
-        else if(position == position_title_other)
+        else if (position == position_title_other)
             return TITLE_OTHER;
-        else if(position == getItemCount() - 1)
+        else if (position == getItemCount() - 1)
             return TITLE_BOTTOM;
         else
             return ITEM;
     }
 
-    private class ItemViewHolder extends RecyclerView.ViewHolder{
+    private class ItemViewHolder extends RecyclerView.ViewHolder {
         int id;
-        TextView tvName,tvQuantity,tvCalorie;
+        DietBean dietBean;
+        TextView tvName, tvQuantity, tvCalorie;
         View divider;
 
         private ItemViewHolder(View itemView) {
@@ -273,9 +286,9 @@ public class DietListAdapter extends RecyclerView.Adapter{
                 public void onResponse(Response httpResponse, String response, Headers headers) {
                     if (response == null || response.length() == 0) {
                         Toast.makeText(context, "Connect fail", Toast.LENGTH_SHORT).show();
-                    } else if(headers.get("Status-Code").equals("-1")){
+                    } else if (headers.get("Status-Code").equals("-1")) {
                         Toast.makeText(context, "Delete fail", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         fragment.initData();
                     }
                 }
@@ -302,10 +315,10 @@ public class DietListAdapter extends RecyclerView.Adapter{
                                                 @Override
                                                 public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                                     new HttpUtil(HttpUtil.NORMAL_PARAMS)
-                                                            .add("uid",MyApplication.getPreferences(UserUtil.UID))
-                                                            .add("token",MyApplication.getPreferences(UserUtil.TOKEN))
-                                                            .add("dietid",id+"")
-                                                            .get(Constant.URL_DELETEDIETHISTORY,callback);
+                                                            .add("uid", MyApplication.getPreferences(UserUtil.UID))
+                                                            .add("token", MyApplication.getPreferences(UserUtil.TOKEN))
+                                                            .add("dietid", id + "")
+                                                            .get(Constant.URL_DELETEDIETHISTORY, callback);
 
                                                 }
                                             }
@@ -318,54 +331,35 @@ public class DietListAdapter extends RecyclerView.Adapter{
         }
     }
 
-    private class HeadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView tvPlan,tvHad,tvLeft;
+    private class HeadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView tvCarb, tvFat, tvProt, tvCalTaken, tvCalRemain;
 
         private HeadViewHolder(View itemView) {
             super(itemView);
 
-            tvPlan = (TextView) itemView.findViewById(R.id.calorie1);
-            tvHad = (TextView) itemView.findViewById(R.id.calorie2);
-            tvLeft = (TextView) itemView.findViewById(R.id.calorie3);
+            tvCarb = (TextView) itemView.findViewById(R.id.tv_carb);
+            tvFat = (TextView) itemView.findViewById(R.id.tv_fat);
+            tvProt = (TextView) itemView.findViewById(R.id.tv_prot);
+            tvCalTaken = (TextView) itemView.findViewById(R.id.tv_cal_taken);
+            tvCalRemain = (TextView) itemView.findViewById(R.id.tv_cal_remaining);
 
             itemView.setOnClickListener(this);
         }
+
         @Override
-        public void onClick(View view){
-            new CaloriePlanDialog(context,caloriePlanListener).show();
+        public void onClick(View view) {
+            new CaloriePlanDialog(context, caloriePlanListener).show();
         }
     }
 
-    private CaloriePlanDialog.MyListener caloriePlanListener= new CaloriePlanDialog.MyListener(){
+    private CaloriePlanDialog.MyListener caloriePlanListener = new CaloriePlanDialog.MyListener() {
         @Override
-        public void refreshActivity(){
+        public void refreshActivity() {
             notifyItemChanged(0);
         }
     };
 
-    private AddDietDialog.MyListener addDietListener= new AddDietDialog.MyListener(){
-        @Override
-        public void refreshActivity(DietBean bean, int type){
-            switch (type){
-                case 0:
-                    list1.add(bean);
-                    break;
-                case 1:
-                    list2.add(bean);
-                    break;
-                case 2:
-                    list3.add(bean);
-                    break;
-                default:
-                    list4.add(bean);
-                    break;
-            }
-            totalCal += Float.parseFloat(bean.getCalorie());
-            notifyDataSetChanged();
-        }
-    };
-
-    private class TitleViewHolder extends RecyclerView.ViewHolder{
+    private class TitleViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
         ImageView icon;
         int type;
@@ -380,14 +374,14 @@ public class DietListAdapter extends RecyclerView.Adapter{
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            new AddDietDialog(context,type,addDietListener,cal).show();
+                            new AddDietDialog(context, type, addDietListener, cal).show();
                         }
                     }
             );
         }
     }
 
-    private class BottomViewHolder extends RecyclerView.ViewHolder{
+    private class BottomViewHolder extends RecyclerView.ViewHolder {
         private BottomViewHolder(View itemView) {
             super(itemView);
 
@@ -396,7 +390,7 @@ public class DietListAdapter extends RecyclerView.Adapter{
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(context, DietAnalysisActivity.class);
-                            intent.putExtra("date",cal);
+                            intent.putExtra("date", cal);
                             context.startActivity(intent);
                         }
                     }
