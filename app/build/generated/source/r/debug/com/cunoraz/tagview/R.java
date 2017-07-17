@@ -16,8 +16,8 @@ public final class R {
         public static final int textPaddingTop = 0x7f010196;
     }
     public static final class id {
-        public static final int tv_tag_item_contain = 0x7f0f0140;
-        public static final int tv_tag_item_delete = 0x7f0f0141;
+        public static final int tv_tag_item_contain = 0x7f0f0144;
+        public static final int tv_tag_item_delete = 0x7f0f0145;
     }
     public static final class layout {
         public static final int tagview_item = 0x7f040087;
